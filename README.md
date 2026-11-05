@@ -16,6 +16,16 @@ Replydesk adds its own floating **···** button on ChatGPT. Click it to open t
 | Costs | Import normalized usage JSON and a configurable USD price table; export a report | Your actual invoice, current provider pricing, or ChatGPT subscription usage |
 | Handoff | Export notes as SESSION.md; optionally import Git metadata from the Python CLI | That your notes are accurate or your tests passed |
 
+## A look inside
+
+<img src="assets/panel-preview.png" alt="Replydesk review panel with a sky-blue background, glass cards and answer input" width="420">
+
+The screenshot shows the local browser preview. The three tabs separate answer review, API cost estimates and session handoffs. No chat is sent to a model. Network link checks require an explicit click and browser permission.
+
+## Help shape Replydesk
+
+The repository is public and contributions are welcome. Pick an [open issue](https://github.com/arhanali003/replydesk/issues), describe your approach, and send a pull request. Start with the [contribution guide](CONTRIBUTING.md); it includes setup, tests and privacy boundaries. You do not need collaborator access to fork the repository or submit a PR.
+
 ## Install locally
 
 1. Download this repository or `git clone https://github.com/arhanali003/replydesk.git`.
