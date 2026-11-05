@@ -23,4 +23,4 @@ Keep code small and readable. Use textContent for untrusted strings. Do not add 
 
 Include meaningful tests for changed behavior, update the docs, and explain the tradeoff in the PR. AI-assisted contributions are welcome; contributors remain responsible for accuracy and licensing. Do not copy proprietary code or assets. By submitting, you confirm you can contribute the work under the repository’s MIT license.
 
-Good starting points: balanced parentheses in URL extraction, accessible focus behavior, a documented provider-log adapter with sanitized fixtures, and reproducible Chromium integration tests.
+Good starting points: URL extraction edge cases, accessible focus behavior, a documented provider-log adapter with sanitized fixtures, and reproducible Chromium integration tests.

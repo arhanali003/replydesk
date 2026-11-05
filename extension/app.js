@@ -73,6 +73,6 @@ $('sample').onclick = () => {
   prices = {currency:'USD',asOf:'fictional example',models:{'example-model':{input:'1.00',output:'4.00',cachedInput:'0.25'}}};
   report=null; $('cost-export').disabled=true; status('Fictional usage and prices loaded. Click Estimate costs.');
 };
-$('estimate').onclick = run(() => { report=estimateCosts(usage,prices); $('cost-result').textContent=JSON.stringify(report,null,2); $('cost-export').disabled=false; });
+$('estimate').onclick = run(() => { report=estimateCosts(usage,prices); $('cost-result').textContent=JSON.stringify(report,null,2); $('cost-export').disabled=false; status('Estimate ready. Unpriced requests are excluded from the subtotal.'); });
 $('cost-export').onclick = () => { if(report) download('cost-report.json',JSON.stringify(report,null,2),'application/json'); };
 $('export').onclick = run(() => { download('SESSION.md',sessionMarkdown({goal:$('goal').value,decisions:$('decisions').value,checks:$('checks').value,next:$('next').value,git}),'text/markdown'); status('Checkpoint downloaded. Review it before sharing.'); });

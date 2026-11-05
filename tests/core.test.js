@@ -34,3 +34,6 @@ test('checkpoint escapes code fences in Git filenames',()=>{
  const output=sessionMarkdown({git:{schema_version:1,head:'abc',changes:[{path:'```evil'}]}});
  assert.equal(output.split('```').length,3);assert.match(output,/not independently verified/);
 });
+test('preserves balanced URL parentheses but strips Markdown wrapper',()=>{
+ assert.deepEqual(inspectAnswer('[link](https://example.com/a_(b)).').links,['https://example.com/a_(b)']);
+});

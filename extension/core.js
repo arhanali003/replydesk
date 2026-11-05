@@ -1,6 +1,12 @@
+function trimURL(value) {
+  let result = value.replace(/[.,;!?]+$/, '');
+  while (result.endsWith(')') && (result.match(/\)/g) || []).length > (result.match(/\(/g) || []).length) result = result.slice(0, -1);
+  return result;
+}
+
 export function inspectAnswer(text) {
   if (typeof text !== 'string' || text.length > 100000) throw Error('Use an answer shorter than 100,000 characters.');
-  const links = [...new Set((text.match(/https?:\/\/[^\s<>"`]+/g) || []).map(s => s.replace(/[.,;!?]+$/, '').replace(/\)+$/, '')))];
+  const links = [...new Set((text.match(/https?:\/\/[^\s<>"`]+/g) || []).map(s => trimURL(s)))];
   const sentences = text.replace(/```[\s\S]*?```/g, '').split(/(?<=[.!?])\s+|\n+/).map(s => s.trim()).filter(Boolean);
   const candidates = sentences.flatMap(sentence => {
     const reasons = [];
