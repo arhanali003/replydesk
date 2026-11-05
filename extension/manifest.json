@@ -1,0 +1,10 @@
+{
+ "manifest_version":3,
+ "name":"Replydesk",
+ "version":"0.1.0",
+ "description":"Review answer links, inspect API costs, and prepare a session handoff. Local tools, explicit checks.",
+ "action":{"default_popup":"panel.html","default_title":"Replydesk"},
+ "optional_host_permissions":["https://*/*"],
+ "content_scripts":[{"matches":["https://chatgpt.com/*"],"js":["content.js"],"run_at":"document_idle"}],
+ "web_accessible_resources":[{"resources":["panel.html","app.js","core.js","style.css"],"matches":["https://chatgpt.com/*"]}]
+}
