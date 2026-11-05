@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="460" viewBox="0 0 1200 460" role="img" aria-label="Replydesk: a little room to think. Review, Costs, Handoff.">
-<rect width="1200" height="460" rx="24" fill="#f2f4ed"/>
-<circle cx="1110" cy="20" r="240" fill="#e0e8da"/>
-<text x="64" y="85" font-family="Arial,sans-serif" font-size="17" letter-spacing="4" fill="#52685c">A LITTLE ROOM TO THINK</text>
-<text x="60" y="181" font-family="Arial,sans-serif" font-size="82" font-weight="700" fill="#253b34">Replydesk ↗</text>
-<text x="64" y="228" font-family="Arial,sans-serif" font-size="25" fill="#52685c">Before you trust it, price it, or leave it behind.</text>
-<g font-family="Arial,sans-serif"><rect x="64" y="292" width="330" height="104" rx="16" fill="#253b34"/><text x="88" y="333" font-size="22" fill="white">01  Review</text><text x="88" y="365" font-size="17" fill="#cbd8ce">Find what needs a second look.</text><rect x="418" y="292" width="330" height="104" rx="16" fill="#e0e8da"/><text x="442" y="333" font-size="22" fill="#253b34">02  Costs</text><text x="442" y="365" font-size="17" fill="#52685c">Put a number on API usage.</text><rect x="772" y="292" width="364" height="104" rx="16" fill="#e8d8b5"/><text x="796" y="333" font-size="22" fill="#253b34">03  Handoff</text><text x="796" y="365" font-size="17" fill="#52685c">Leave the next session a trail.</text></g></svg>
+<rect width="1200" height="460" rx="24" fill="#edf8ff"/>
+<circle cx="1110" cy="20" r="240" fill="#d4edff"/>
+<text x="64" y="85" font-family="Arial,sans-serif" font-size="17" letter-spacing="4" fill="#426887">A LITTLE ROOM TO THINK</text>
+<text x="60" y="181" font-family="Arial,sans-serif" font-size="82" font-weight="700" fill="#096aca">Replydesk ↗</text>
+<text x="64" y="228" font-family="Arial,sans-serif" font-size="25" fill="#426887">Before you trust it, price it, or leave it behind.</text>
+<g font-family="Arial,sans-serif"><rect x="64" y="292" width="330" height="104" rx="16" fill="#096aca"/><text x="88" y="333" font-size="22" fill="white">01  Review</text><text x="88" y="365" font-size="17" fill="#e2f3ff">Find what needs a second look.</text><rect x="418" y="292" width="330" height="104" rx="16" fill="#d4edff"/><text x="442" y="333" font-size="22" fill="#096aca">02  Costs</text><text x="442" y="365" font-size="17" fill="#426887">Put a number on API usage.</text><rect x="772" y="292" width="364" height="104" rx="16" fill="#dcefff"/><text x="796" y="333" font-size="22" fill="#096aca">03  Handoff</text><text x="796" y="365" font-size="17" fill="#426887">Leave the next session a trail.</text></g></svg>

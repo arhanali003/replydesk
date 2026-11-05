@@ -32,6 +32,7 @@ window.addEventListener('message', event => {
 });
 $('answer').oninput = () => { links = []; $('check').hidden = true; };
 $('inspect').onclick = run(() => {
+  if (!$('answer').value.trim()) throw Error('Paste an answer first, or bring in a reply from ChatGPT.');
   const result = inspectAnswer($('answer').value); $('review-result').replaceChildren(); links = [];
   for (const raw of result.links) {
     try { const url = checkableURL(raw).href; card(url, 'Ready for an explicit link check.'); links.push(url); }
@@ -65,14 +66,14 @@ for (const [id, assign] of [['usage-file', value => {usage=value;}], ['prices-fi
   $(id).onchange = run(async () => {
     const file = $(id).files[0]; if (!file) return;
     if (file.size > 2*1024*1024) throw Error('Use a JSON file smaller than 2 MiB.');
-    const value = JSON.parse(await file.text()); assign(value); report = null; $('cost-export').disabled = true; status(`Loaded ${file.name}.`);
+    const value = JSON.parse(await file.text()); assign(value); report = null; $('cost-summary').hidden=true; $('cost-export').disabled = true; status(`Loaded ${file.name}.`);
   });
 }
 $('sample').onclick = () => {
   usage = [{id:'demo-1',model:'example-model',input_tokens:1000,output_tokens:200,cached_input_tokens:200}];
   prices = {currency:'USD',asOf:'fictional example',models:{'example-model':{input:'1.00',output:'4.00',cachedInput:'0.25'}}};
-  report=null; $('cost-export').disabled=true; status('Fictional usage and prices loaded. Click Estimate costs.');
+  report=null; $('cost-summary').hidden=true; $('cost-export').disabled=true; status('Fictional usage and prices loaded. Click Estimate costs.');
 };
-$('estimate').onclick = run(() => { report=estimateCosts(usage,prices); $('cost-result').textContent=JSON.stringify(report,null,2); $('cost-export').disabled=false; status('Estimate ready. Unpriced requests are excluded from the subtotal.'); });
+$('estimate').onclick = run(() => { report=estimateCosts(usage,prices); $('cost-result').textContent=JSON.stringify(report,null,2); const summary=$('cost-summary'); summary.replaceChildren(); summary.hidden=false; const label=document.createElement('span'); label.textContent='Priced subtotal · USD'; const amount=document.createElement('strong'); amount.textContent='$'+report.pricedSubtotalUSD.replace(/0+$/, '').replace(/\.$/, '') ; const detail=document.createElement('p'); detail.textContent=`${report.rows.length} request${report.rows.length === 1 ? '' : 's'} · ${report.unpricedRequests} unpriced`; summary.append(label,amount,detail); $('cost-export').disabled=false; status('Estimate ready. Unpriced requests are excluded from the subtotal.'); });
 $('cost-export').onclick = () => { if(report) download('cost-report.json',JSON.stringify(report,null,2),'application/json'); };
 $('export').onclick = run(() => { download('SESSION.md',sessionMarkdown({goal:$('goal').value,decisions:$('decisions').value,checks:$('checks').value,next:$('next').value,git}),'text/markdown'); status('Checkpoint downloaded. Review it before sharing.'); });
